@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./src/styles/style.css">
+    <style>
+        #timer {
+            display: flex;
+            align-items: center;
+            column-gap: 15px;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+        #timer > span {
+            font-size: 44px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header class="header">
+
+        <div class="header__row">
+
+            <div class="header__row-box">
+                <img src="src/image/header1.png" alt="" class="header__row-img">
+                <p class="header__row-text">
+                    Быстрая доставка <br>
+                    через день
+                </p>
+            </div>
+
+            <div class="header__row-box">
+                <img src="src/image/header2.png" alt="" class="header__row-img">
+                <p class="header__row-text">
+                    Оплата при <br>
+                    получении товара
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+    <section class="a">
+
+        <p class="a__text">
+            СКЛАДНАЯ ВАННОЧКА
+        </p>
+
+        <img src="./src/image/a.jpg" alt="" class="a__img">
+
+        <div class="a__rows">
+            <div class="a__row">
+                <p class="a__row-title">
+                    Обычная цена:
+                </p>
+                <h2 class="a__row-num">
+                    890 <span>СОМ</span>
+                </h2>
+            </div>
+            <div class="a__row a__row2">
+                <p class="a__row-title2">
+                    Цена по акции:
+                </p>
+                <h2 class="a__row-num2">
+                    1390 <span>СОМ</span>
+                </h2>
+            </div>
+        </div>
+
+    </section>
+    <section class="b">
+
+        <div class="b__top">
+            <img src="./src/image/b.png" alt="" class="b__top-img">
+            <p class="b__top-text">
+                ДО КОНЦА АКЦИИ ОСТАЛОСЬ:
+            </p>
+        </div>
+        <p id="timer" class="b__timer">
+
+            <span>24</span>
+            часов
+            <span>59</span>
+            минут
+            <span>59</span>
+            секунд
+
+        </p>
+        <div class="b__btns">
+            <button class="b__btn">
+                ЗАКАЗАТЬ СО СКИДКОЙ
+            </button>
+        </div>
+        <div class="b__bottom">
+
+            <p class="b__bottom-text">
+                Осталось товара по акции
+            </p>
+
+            <h2 class="b__bottom-num">
+                7 шт.
+            </h2>
+
+        </div>
+
+        <script>
+            function updateTimer() {
+                let now = new Date();
+                let targetTime = new Date();
+                targetTime.setHours(24);
+                targetTime.setMinutes(59);
+                targetTime.setSeconds(59);
+
+                if (now >= targetTime) {
+                    targetTime.setDate(targetTime.getDate() + 1);
+                }
+
+                let diff = targetTime.getTime() - now.getTime();
+
+                let hours = Math.floor(diff / (1000 * 60 * 60)).toString().padStart(2, '0');
+                let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                let seconds = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+
+                let hourSpan = document.getElementById('timer').getElementsByTagName('span')[0];
+                let minuteSpan = document.getElementById('timer').getElementsByTagName('span')[1];
+                let secondSpan = document.getElementById('timer').getElementsByTagName('span')[2];
+
+                hourSpan.textContent = hours;
+                minuteSpan.textContent = minutes;
+                secondSpan.textContent = seconds;
+            }
+
+            var timerInterval = setInterval(updateTimer, 1000);
+        </script>
+
+    </section>
+    <section class="c">
+
+        <iframe class="c__video" width="560" height="315" src="https://www.youtube.com/embed/bd758L7Ctrk?si=I-CvNXnFTlLF99qS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <div class="b__btns">
+            <button class="b__btn">
+                ЗАКАЗАТЬ СЕЙЧАС
+            </button>
+        </div>
+
+    </section>
+    <section class="d">
+
+        <h2 class="d__title">
+            ОТЗЫВЫ НАШИХ <br>
+            ПОКУПАТЕЛЕЙ
+        </h2>
+
+
+        <div class="d__row">
+            <div class="d__block">
+                <img src="./src/image/d3.jpg" alt="" class="d__block-img">
+
+                <p class="d__block-text">
+                    Прекрасная ванночка, всё точно соответствует описанию, надеюсь, будущий владелец будет от неё тоже в восторге)
+                </p>
+            </div>
+            <div class="d__block">
+                <img src="./src/image/d1.jpg" alt="" class="d__block-img">
+
+                <p class="d__block-text">
+                    Пришло все целое, упаковано отлично. В деле пока не пробовали, но надеюсь прослужит до 2 лет) Утка прелесть, спасибо)
+                </p>
+            </div>
+            <div class="d__block">
+                <img src="./src/image/d2.jpg" alt="" class="d__block-img">
+
+                <p class="d__block-text">
+                    Сломалась ножка через недел при купании. Ребенок испугался плакол. Сейчас не знаю что с этим товаром сделать.
+                </p>
+            </div>
+        </div>
+
+        <div class="b__btns">
+            <button class="b__btn">
+                ЗАКАЗАТЬ СО СКИДКОЙ
+            </button>
+        </div>
+
+    </section>
+    <section class="e">
+
+        <h2 class="e__title">
+            ДОСТАВКА И ОПЛАТА
+        </h2>
+
+        <div class="e__row">
+            <img src="./src/image/e1.jpg" alt="" class="e__row-img">
+
+            <p class="e__row-text">
+
+                <span>Быстрая доставка</span> <br>
+                Доставка курьером через <br>
+                день. Стоимость доставки <br>
+                от 150сом
+
+            </p>
+        </div>
+        <div class="e__row">
+
+            <p class="e__row-text">
+
+                <span>Удобная оплата</span> <br>
+                Оплата производится <br>
+                только при получении <br>
+                заказа на руки.
+
+            </p>
+            <img src="./src/image/e2.jpg" alt="" class="e__row-img">
+
+        </div>
+
+    </section>
+    <section class="f">
+
+        <h2 class="f__title">
+            ОСТАВЬТЕ ЗАЯВКУ
+        </h2>
+        <p class="f__text">
+            и получите с экономией <span>400сом</span>
+        </p>
+
+        <div class="f__form">
+            <input placeholder="Введите ваше имя" type="text" class="f__form-input">
+            <input placeholder="Введите ваш телефон" type="tel" class="f__form-input">
+        </div>
+
+        <div class="b__btns">
+            <button class="b__btn">
+                ЗАКАЗАТЬ СО СКИДКОЙ
+            </button>
+        </div>
+
+        <div class="b__bottom">
+
+            <p class="b__bottom-text">
+                Осталось товара по акции
+            </p>
+
+            <h2 class="b__bottom-num">
+                7 шт.
+            </h2>
+
+        </div>
+
+    </section>
+    <footer class="footer">
+
+        <h2 class="footer__title">
+            ИНТЕРНЕТ-МАГАЗИН «STIM»
+        </h2>
+
+        <div class="footer__row">
+            <div class="footer__block">
+                <h3 class="footer__block-title">График работы:</h3>
+                <p class="footer__block-text">Пн-Пт: с 9:00-18:00</p>
+                <p class="footer__block-text">Сб, Вс: выходные</p>
+            </div>
+            <div class="footer__block">
+                <h3 class="footer__block-title">Контакты:</h3>
+                <p class="footer__block-text">Тел.:0(708)90-56-36</p>
+                <p class="footer__block-text">W/A:0(708)90-56-36</p>
+            </div>
+        </div>
+
+        <div class="footer__row2">
+            <a href="#" class="footer__row2-text">Политика конфиденциальности</a>
+            <a href="#" class="footer__row2-text">Пользовательское соглашение</a>
+            <a href="#" class="footer__row2-text">Условие возврата и обмена</a>
+        </div>
+
+    </footer>
+
+</div>
+
+</body>
+</html>
